@@ -2,7 +2,7 @@ const $container =  document.querySelector('.container');
 
 (async ()=>{
 	const medidas = ['250x250','500x250','250x500','250x750'];
-	for (let i = 0; i< 100; i++){
+	for (let i = 0; i< 30; i++){
 		let randomNumber =  Math.floor(Math.random() * 4);
 		const res = await fetch(`https://source.unsplash.com/random/${medidas[randomNumber]}`);
 		cargar(res.url);
@@ -26,10 +26,7 @@ async function cargar(url){
 	    return size;
 	}
 	function template(url,size){
-		if (size[1]>(size[0]*2)){
-			return addClassUrl(url,'xlarge');
-			debugger
-		}else if (size[1]>size[0]) {
+		if (size[1]>size[0]) {
 			return addClassUrl(url,'vertical');
 			debugger
 		}else if (size[1]==size[0]) {
@@ -37,6 +34,9 @@ async function cargar(url){
 			debugger
 		}else if (size[1]<size[0]) {
 			return addClassUrl(url,'horizontal');
+			debugger
+		}else if (size[1]>(size[0]*2)){
+			return addClassUrl(url,'vertical-l');
 			debugger
 		}
 	}
