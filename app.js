@@ -2,7 +2,7 @@ const $container =  document.querySelector('.container');
 
 (async ()=>{
 	const medidas = ['250x250','500x250','250x500','250x750'];
-	for (let i = 0; i< 30; i++){
+	for (let i = 0; i< 100; i++){
 		let randomNumber =  Math.floor(Math.random() * 4);
 		const res = await fetch(`https://source.unsplash.com/random/${medidas[randomNumber]}`);
 		cargar(res.url);
